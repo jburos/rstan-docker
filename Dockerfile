@@ -1,7 +1,7 @@
 FROM rocker/rstudio
 MAINTAINER "Jacqueline Buros Novik" jackinovik@gmail.com
 
-Rscript -e "install.packages(c('inline', 'Rcpp', 'coda', 'BH', 'RcppEigen', 'RInside', 'RUnit', 'ggplot2', 'gridExtra'), repos='http://cran.rstudio.com')"
+Rscript -e "install.packages(c('inline', 'Rcpp', 'coda', 'BH', 'RcppEigen', 'RInside', 'RUnit', 'ggplot2', 'gridExtra','devtools'), repos='http://cran.rstudio.com')"
 
 R -q -e "options(repos = getCRANmirrors()[1,'URL']); library(devtools); install_github('Rcpp', 'Rcppcore')"
 
