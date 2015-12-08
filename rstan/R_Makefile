@@ -1,0 +1,7 @@
+## To make it easier to control how to install rstan 
+## 
+## for clang++ on Mac OS X Mavericks with Xcode 5
+# CXX = ccache clang++
+# CXXFLAGS = -O2 $(LTO) 
+CXX = /usr/bin/ccache clang++ -Qunused-arguments -fcolor-diagnostics 
+CXXFLAGS = -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -g -pedantic -g0
