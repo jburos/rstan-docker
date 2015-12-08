@@ -35,7 +35,7 @@ RUN R -q -e "options(repos = getCRANmirrors()[1,'URL']); library(devtools); inst
 ## begin building rstan from source (github.com/stan-dev/rstan)
 WORKDIR /tmp/build_rstan
 RUN git clone --recursive https://github.com/stan-dev/rstan.git 
-RUN git reset --hard $COMMIT_HASH
+RUN git reset --hard $COMMIT_REF
 
 ## build/install development version of StanHeaders
 WORKDIR /tmp/build_rstan/rstan
