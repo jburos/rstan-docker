@@ -13,9 +13,9 @@ RUN apt-get update \
                    clang
 
 # Global site-wide config
-#RUN mkdir -p $HOME/.R/ \
-#    && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
-#    && echo "CC=clang\n" >> $HOME/.R/Makevars
+RUN mkdir -p $HOME/.R/ \
+    && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
+    && echo "CC=clang\n" >> $HOME/.R/Makevars
 
 ## install pre-reqs for rstan
 RUN install2.r --error \
