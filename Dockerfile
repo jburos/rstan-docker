@@ -3,7 +3,7 @@ MAINTAINER "Jacqueline Buros Novik" jackinovik@gmail.com
 
 ENV STAN_BRANCH develop 
 ENV STAN_MATH_BRANCH develop
-ENV COMMIT_REF develop # '1a81f57'
+ENV COMMIT_REF '1a81f57'
 
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
