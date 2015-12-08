@@ -30,7 +30,7 @@ RUN install2.r --error \
 
 ## update Rcpp & Rcppcore to versions in github
 ## as done in https://github.com/stan-dev/rstan/blob/develop/.travis.yml
-RUN R -q -e "options(repos = getCRANmirrors()[1,'URL']); library(devtools); install_github('Rcpp', 'Rcppcore')"
+#RUN R -q -e "options(repos = getCRANmirrors()[1,'URL']); library(devtools); install_github('Rcpp', 'Rcppcore')"
 
 ## begin building rstan from source (github.com/stan-dev/rstan)
 WORKDIR /tmp/build_rstan
