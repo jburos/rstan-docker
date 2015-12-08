@@ -8,9 +8,9 @@ ENV COMMIT_REF '1a81f57'
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
 # with g++ rstan cannot compile on docker hub due to memory issues
-#RUN apt-get update \ 
-#	&& apt-get install -y --no-install-recommends \
-#                   clang
+RUN apt-get update \ 
+	&& apt-get install -y --no-install-recommends \
+                   clang
 
 # Global site-wide config
 #RUN mkdir -p $HOME/.R/ \
