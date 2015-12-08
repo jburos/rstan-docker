@@ -35,10 +35,10 @@ RUN install2.r --error \
 ## begin building rstan from source (github.com/stan-dev/rstan)
 WORKDIR /tmp/build_rstan
 RUN git clone --recursive https://github.com/stan-dev/rstan.git 
-RUN git reset --hard $COMMIT_REF
 
 ## build/install development version of StanHeaders
 WORKDIR /tmp/build_rstan/rstan
+RUN git reset --hard $COMMIT_REF
 RUN git config -f .gitmodules submodule.stan.branch $STAN_BRANCH
 RUN git config -f .gitmodules submodule.StanHeaders/inst/include/mathlib.branch $STAN_MATH_BRANCH
 RUN git submodule update --remote
