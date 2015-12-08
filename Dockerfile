@@ -31,6 +31,7 @@ RUN install2.r --error \
     RUnit \
     devtools
 
+
 ## update Rcpp & Rcppcore to versions in github
 ## as done in https://github.com/stan-dev/rstan/blob/develop/.travis.yml
 #RUN R -q -e "options(repos = getCRANmirrors()[1,'URL']); library(devtools); install_github('Rcpp', 'Rcppcore')"
@@ -53,11 +54,15 @@ WORKDIR /tmp/build_rstan/rstan/rstan
 RUN R CMD build rstan
 RUN R CMD INSTALL `find rstan*.tar.gz`
 
-## build/install development version of rstanarm
-WORKDIR /tmp/build_rstanarm
-RUN git clone --recursive https://github.com/stan-dev/rstanarm.git
-RUN R CMD build rstanarm
-RUN R CMD INSTALL `find rstanarm_*.tar.gz`
+## install dependencies for shinystan
+RUN install2.r --error \ 
+    DT \
+    dygraphs \
+    gtools \ 
+    shinyjs \ 
+    shinythemes \ 
+    threejs \ 
+    xts
 
 ## build/install development version of shinystan
 WORKDIR /tmp/build_shinystan
@@ -67,4 +72,16 @@ RUN R CMD INSTALL `find shinystan_*.tar.gz`
 
 ## install loo
 RUN install2.r --error \
-    loo \
+    loo
+
+## pre-requisite for rstanarm
+RUN install2.r --error \
+	lme4 \
+	HSAUR3
+
+## build/install development version of rstanarm
+WORKDIR /tmp/build_rstanarm
+RUN git clone --recursive https://github.com/stan-dev/rstanarm.git
+RUN R CMD build rstanarm
+RUN R CMD INSTALL `find rstanarm_*.tar.gz`
+
