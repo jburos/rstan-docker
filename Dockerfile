@@ -48,5 +48,20 @@ RUN R CMD INSTALL `find StanHeaders*.tar.gz`
 ## build/install development version of rstan
 WORKDIR /tmp/build_rstan/rstan/rstan 
 RUN R CMD build rstan
-RUN R CMD INSTALL `find `rstan*.tar.gz`
+RUN R CMD INSTALL `find rstan*.tar.gz`
 
+## build/install development version of rstanarm
+WORKDIR /tmp/build_rstanarm
+RUN git clone --recursive https://github.com/stan-dev/rstanarm.git
+RUN R CMD build rstanarm
+RUN R CMD INSTALL `find rstanarm_*.tar.gz`
+
+## build/install development version of shinystan
+WORKDIR /tmp/build_shinystan
+RUN git clone --recursive https://github.com/stan-dev/shinystan.git
+RUN R CMD build shinystan
+RUN R CMD INSTALL `find shinystan_*.tar.gz`
+
+## install loo
+RUN install2.r --error \
+    loo \
