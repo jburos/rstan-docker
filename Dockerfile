@@ -39,9 +39,9 @@ RUN git clone --recursive https://github.com/stan-dev/rstan.git
 ## build/install development version of StanHeaders
 WORKDIR /tmp/build_rstan/rstan
 RUN git reset --hard $COMMIT_REF
-RUN git config -f .gitmodules submodule.stan.branch $STAN_BRANCH
-RUN git config -f .gitmodules submodule.StanHeaders/inst/include/mathlib.branch $STAN_MATH_BRANCH
-RUN git submodule update --remote
+#RUN git config -f .gitmodules submodule.stan.branch $STAN_BRANCH
+#RUN git config -f .gitmodules submodule.StanHeaders/inst/include/mathlib.branch $STAN_MATH_BRANCH
+#RUN git submodule update --remote
 RUN R CMD build StanHeaders/
 RUN R CMD INSTALL `find StanHeaders*.tar.gz`
 
