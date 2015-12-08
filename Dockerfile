@@ -68,3 +68,4 @@ RUN R CMD INSTALL `find shinystan_*.tar.gz`
 ## install loo
 RUN install2.r --error \
     loo \
+
