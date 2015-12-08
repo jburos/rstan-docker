@@ -47,6 +47,6 @@ RUN R CMD INSTALL `find StanHeaders*.tar.gz`
 
 ## build/install development version of rstan
 WORKDIR /tmp/build_rstan/rstan/rstan 
-RUN make build
-RUN make install
+RUN R CMD build rstan
+RUN R CMD INSTALL `find `rstan*.tar.gz`
 
