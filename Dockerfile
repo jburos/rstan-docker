@@ -3,7 +3,7 @@ MAINTAINER "Jacqueline Buros Novik" jackinovik@gmail.com
 
 ENV STAN_BRANCH develop 
 ENV STAN_MATH_BRANCH develop
-ENV COMMIT_REF '1a81f57'
+#ENV COMMIT_REF '1a81f57'
 
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
@@ -42,7 +42,7 @@ RUN git clone --recursive https://github.com/stan-dev/rstan.git
 
 ## build/install development version of StanHeaders
 WORKDIR /tmp/build_rstan/rstan
-RUN git reset --hard $COMMIT_REF
+#RUN git reset --hard $COMMIT_REF
 #RUN git config -f .gitmodules submodule.stan.branch $STAN_BRANCH
 #RUN git config -f .gitmodules submodule.StanHeaders/inst/include/mathlib.branch $STAN_MATH_BRANCH
 #RUN git submodule update --remote
