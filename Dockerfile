@@ -85,3 +85,5 @@ RUN git clone --recursive https://github.com/stan-dev/rstanarm.git
 RUN R CMD build rstanarm
 RUN R CMD INSTALL `find rstanarm_*.tar.gz`
 
+WORKDIR /home/rstudio
+
