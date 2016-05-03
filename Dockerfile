@@ -62,7 +62,8 @@ RUN install2.r --error \
     shinyjs \ 
     shinythemes \ 
     threejs \ 
-    xts
+    xts \
+    rsconnect
 
 ## build/install development version of shinystan
 WORKDIR /tmp/build_shinystan
